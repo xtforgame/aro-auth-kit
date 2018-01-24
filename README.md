@@ -1,6 +1,6 @@
-# AzDevBase
+# AroAuthKit
 
-A general purpose seed project base
+An aro auth kit
 
 Run `npm install`
 

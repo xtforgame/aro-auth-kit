@@ -1,0 +1,12 @@
+version: '3'
+services:
+  pg-master:
+    image: postgres:9.6
+
+    container_name: postgresql-master
+    environment:
+      POSTGRES_PASSWORD: xxxx1234
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+

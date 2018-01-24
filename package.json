@@ -1,7 +1,7 @@
 {
-  "name": "az-dev-base",
-  "version": "1.0.0",
-  "description": "A general purpose seed project base",
+  "name": "aro-auth-kit",
+  "version": "0.1.0",
+  "description": "An aro auth kit",
   "main": "dist/library/index.js",
   "repository": {
     "type": "git"
@@ -21,26 +21,31 @@
     "build": "cross-env NODE_ENV=production gulp library:build",
     "start": "cross-env NODE_ENV=development gulp library:watch",
     "test": "eslint ./test/library && cross-env NODE_ENV=test mocha --compilers js:babel-core/register ./test/library/**/*.spec.js",
-    "test-watch": "eslint ./test/library && cross-env NODE_ENV=test mocha --watch ./test --watch-extensions js,jsx --compilers js:babel-core/register ./test/library/**/*.spec.js"
+    "test-watch": "eslint ./test/library && cross-env NODE_ENV=test mocha --watch ./test --watch-extensions js,jsx --compilers js:babel-core/register ./test/library/**/*.spec.js",
+    "start-db": "docker-compose -f docker-compose.yml up -d",
+    "stop-db": "docker-compose -f docker-compose.yml down"
   },
   "license": "MIT",
   "engines": {
     "node": ">=7.0"
   },
   "dependencies": {
-    "jsonwebtoken": "^8.1.0",
-    "sha512crypt-node": "^0.1.0",
-    "uuid": "^3.1.0"
+    "jwt-session-helper": "git+https://github.com/xtforgame/jwt-session-helper.git#v0.1.0",
+    "sha512crypt-node": "^0.1.0"
   },
   "peerDependencies": {
+    "azldi": "*",
     "az-rdbms-orm": "*",
+    "az-restful-helpers": "*",
     "sequelize": ">=4.26",
     "pg": ">=7.4"
   },
   "devDependencies": {
     "axios": "^0.17.1",
-    "az-gulp-env-lite": "git+https://github.com/xtforgame/az-gulp-env-lite#v0.4.0",
-    "az-rdbms-orm": "git+https://github.com/xtforgame/az-rdbms-orm#v0.1.1",
+    "azldi": "git+https://github.com/xtforgame/azldi.git#v0.1.0",
+    "az-gulp-env-lite": "git+https://github.com/xtforgame/az-gulp-env-lite.git#v0.4.0",
+    "az-rdbms-orm": "git+https://github.com/xtforgame/az-rdbms-orm.git#v0.1.2",
+    "az-restful-helpers": "git+https://github.com/xtforgame/az-restful-helpers.git#v0.1.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
     "babel-plugin-transform-class-properties": "^6.11.5",
